@@ -14,9 +14,13 @@
         <div class="col-md-1"></div>
         <div class="col-md-6">
             <div class="card card-body">
-                <img src="{{ home.image.url }}" alt="{{ home.name }}" class="img-responsive" height="300" width="300">
+                <div class="card-title">{{home.name}} - <span>Ksh. {{home.price}}</span> <button class="book btn btn-outline-primary">Book</button></div>
+
+                <img src="{{ home.image.url }}" alt="{{ home.name }}" class="img-responsive" height="400" width="90%">
+
             </div>
-            <p>{{home.name}}</p>
+            <p>{{home.name}} -located at <em>{{ home.area}}</em></p>
+            <p>{{home.rooms}} Rooms</p>
             <hr>
             {% for comment in comments %}
             <div>
@@ -30,14 +34,12 @@
 
 
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <form class="form" action="" method="post" novalidate enctype="multipart/form-data">
                 {% csrf_token %}
 
-
-
                 {% bootstrap_form form layout='block' %}
-                <button type="submit" class="btn btn-sm btn-info" style="margin-top:10px; margin-left:5px">post</button>
+                <button type="submit" class="btn btn-sm btn-info" style="margin-top:10px; margin-left:5px">Comment</button>
             </form>
         </div>
 
