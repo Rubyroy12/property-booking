@@ -1,4 +1,4 @@
-{%extends 'base.html'%}
+{% extends 'base.html'%}
 {% load bootstrap4 %}
 {% load static %}
 
@@ -6,22 +6,33 @@
 
 <div class="container-fluid">
 
-<div class="row">
+    <div class="row">
 
 
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-        <img src="{{ property.image.url}}" alt="{{ property.name }}" class="img-responsive" height="300" width="300">
-        <p>{{property.name}}</p>
+        <img src="{{ home.image.url }}" alt="{{ home.name }}" class="img-responsive" height="300" width="300">
+        <p>{{home.name}}</p>
+
+        <form class="form" action="" method="post" novalidate enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-7">
+                    {% bootstrap_form form layout='block' %}
+                    <button type="submit" class="btn btn-sm btn-info" style="margin-top:10px; margin-left:5px">post</button>
+                </div>
+                <div class="col-md-2"></div>
+    
+            </div>
+        </form>
+
+
+
     </div>
-    <div class="col-md-3"></div>
-    
-</div>
 
-<hr>
+    <hr>
 
 
-    
+
 </div>
 
 {% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load bootstrap4%}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+    <div class="h2">welcome to my prperty booking app</div>
+    <div class="row">
+        {% for property in property %}
+        <ul>
+           <a href="{% url 'details' property.name%}"> <img src="{{ property.image.url}}" alt="" height="300" width="300"></a>
+            <li>{{property.name}}</li>
+        </ul>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock %}

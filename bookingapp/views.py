@@ -21,6 +21,15 @@ def profile(request,username):
 
     return render(request,'profile.html')
 
+def property(request):
+    myproperty=Property.objects.all()
+
+    params={
+        'property':myproperty,
+    }
+    return render(request,'property.html',params)
+
+
 def details(request,name):
     # current_user= request.user
     home = Property.objects.get(name=name)
