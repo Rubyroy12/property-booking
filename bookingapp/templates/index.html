@@ -7,7 +7,7 @@
     <div class="row">
         {% for property in property %}
         <ul>
-           <a href="{% url 'details' myproperty.name%}"> <img src="{{ property.image.url}}" alt="" height="300" width="300"></a>
+           <a href="{% url 'details' property.name%}"> <img src="{{ property.image.url}}" alt="" height="300" width="300"></a>
             <li>{{property.name}}</li>
         </ul>
         {% endfor %}
