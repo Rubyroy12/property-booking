@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponse,HttpResponseRedirect
-from .models import Property,Reviews
+from .models import Property,Reviews,Profile
 from django.contrib.auth.models import User
 from .forms import ReviewsForm
 
@@ -32,6 +32,7 @@ def property(request):
 
 def details(request,name):
     home = Property.objects.get(name=name)
+   
     comment= Reviews.objects.all()
     if request.method == 'POST':
         form = ReviewsForm(request.POST)
@@ -46,7 +47,8 @@ def details(request,name):
     params={
         'home': home,
         'form': form,
-        'comment':comment,
+        'comments':comment,
+        
 
         }
     return render(request,'details.html',params)

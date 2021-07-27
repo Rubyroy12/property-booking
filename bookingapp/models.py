@@ -7,7 +7,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile',null=True)
 
 class City(models.Model):
-     name = models.CharField(max_length = 50)
+    name = models.CharField(max_length = 50)
 
 class Property(models.Model):
     city = models.ForeignKey(City,on_delete = models.CASCADE,related_name = 'property')
