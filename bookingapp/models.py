@@ -25,7 +25,7 @@ class Gallery(models.Model):
     image3= CloudinaryField('image')
 
 class Reviews(models.Model):
-    comment = models.TextField(max_length=200)
+    comment = models.TextField()
     user = models.ForeignKey('Profile',on_delete=models.CASCADE,related_name='comment')
     property = models.ForeignKey('Property',on_delete=models.CASCADE,related_name='comment')
 

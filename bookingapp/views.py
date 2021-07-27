@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponse,HttpResponseRedirect
 from .models import Property,Reviews
 from django.contrib.auth.models import User
@@ -31,23 +31,22 @@ def property(request):
 
 
 def details(request,name):
-    # current_user= request.user
     home = Property.objects.get(name=name)
-    # comment=Reviews.objects.filter(id)
+    comment= Reviews.objects.all()
     if request.method == 'POST':
-        form = ReviewsForm(request.POST,request.FILES)
+        form = ReviewsForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
-            comment.property=property
+            comment.property = home
             comment.user = request.user.profile
             comment.save()
             return HttpResponseRedirect(request.path_info)
     else:
-        form= ReviewsForm()
+        form = ReviewsForm()
     params={
-        'home':home,
+        'home': home,
         'form': form,
-        # 'comment':comment,
+        'comment':comment,
 
         }
     return render(request,'details.html',params)
