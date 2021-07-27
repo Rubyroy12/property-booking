@@ -4,7 +4,14 @@
 {% block content %}
 <div class="container-fluid">
     <div class="h2">welcome to my prperty booking app</div>
-
+    <div class="row">
+        {% for property in property %}
+        <ul>
+            <img src="{{ property.image.url}}" alt="" height="300" width="300">
+            <li>{{property.name}}</li>
+        </ul>
+        {% endfor %}
+    </div>
 
 </div>
 

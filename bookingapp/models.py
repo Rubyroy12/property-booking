@@ -13,6 +13,8 @@ class Property(models.Model):
     city = models.ForeignKey(City,on_delete = models.CASCADE,related_name = 'property')
     name= models.CharField(max_length=100)
     area = models.CharField(max_length=100)
+    image = CloudinaryField('image')
+    description = models.CharField(max_length=500)
     rooms=models.IntegerField()
     price= models.DecimalField(max_digits=10, decimal_places=2)
 
