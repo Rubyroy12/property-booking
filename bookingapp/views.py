@@ -56,12 +56,15 @@ def details(request,name):
 @login_required(login_url='/accounts/login/')
 def booking(request,name):
     appartment = Property.objects.get(name=name)
+    myproperty= Property.objects.get(name=name)
 
     if request.method == 'POST':
+
         form = BookingForm(request.POST)
         if form.is_valid():
             book = form.save(commit=False)
             book.user = request.user.profile
+            book.property= myproperty
             book.save()
             return HttpResponseRedirect(request.path_info)
     else:
