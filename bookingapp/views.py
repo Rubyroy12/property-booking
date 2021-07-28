@@ -3,6 +3,7 @@ from django.http import HttpResponse,HttpResponseRedirect
 from .models import Property,Reviews,Profile
 from django.contrib.auth.models import User
 from .forms import ReviewsForm
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -15,16 +16,16 @@ def index(request):
     }
     return render(request, 'index.html',params)
 
-
+@login_required(login_url='/accounts/login/')
 def profile(request,username):
-    user=request.user.profile
+    # user=request.user.profile
   
-    params = {
-        'user':user,
-    }
+    # params = {
+    #     'user':user,
+    # }
    
 
-    return render(request,'profile.html',params )
+    return render(request,'profile.html')
 
 def property(request):
     myproperty=Property.objects.all()
