@@ -35,7 +35,12 @@
                 </tbody>
               
             </table>
-            <div class="btn btn-primary">Save</div>
+            <form class="form" action="" method="post" novalidate enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {% bootstrap_form form layout='block' %}
+                <button type="submit" class="btn btn-sm btn-info" style="margin-top:10px; margin-left:5px">Pay</button>
+            </form>
 
 
 

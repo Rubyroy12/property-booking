@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponse,HttpResponseRedirect
 from .models import Property,Reviews,Profile
 from django.contrib.auth.models import User
-from .forms import ReviewsForm
+from .forms import ReviewsForm,BookingForm
 from django.contrib.auth.decorators import login_required
 
 
@@ -56,8 +56,19 @@ def details(request,name):
 @login_required(login_url='/accounts/login/')
 def booking(request,name):
     appartment = Property.objects.get(name=name)
+
+    if request.method == 'POST':
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            book = form.save(commit=False)
+            book.user = request.user.profile
+            book.save()
+            return HttpResponseRedirect(request.path_info)
+    else:
+        form = BookingForm()
     params={
-        'appartment':appartment
+        'appartment':appartment,
+        'form':form,
     }
     return render(request,'cart.html',params)
 
