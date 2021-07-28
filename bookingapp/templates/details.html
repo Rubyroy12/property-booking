@@ -4,7 +4,7 @@
 
 {% block content%}
 
-<div class="container-fluid">
+<div class="container-fluid" style="background-color: rgb(111, 127, 129);">
 
     <div class="row">
 
@@ -14,7 +14,10 @@
         <div class="col-md-1"></div>
         <div class="col-md-6">
             <div class="card card-body">
-                <div class="card-title">{{home.name}} - <span>Ksh. {{home.price}}</span> <a class="book btn btn-outline-primary" href="{% url 'booking' home.name%}">Book</a></div>
+                <div class="card-title">
+                    <h3>{{home.name}} </h3> in <em> {{home.city.name}}</em>-<span>Ksh. {{home.price}}</span> <a
+                        class="book btn btn-outline-primary" href="{% url 'booking' home.name%}">Book</a>
+                </div>
 
                 <img src="{{ home.image.url }}" alt="{{ home.name }}" class="img-responsive" height="400" width="90%">
 
@@ -22,16 +25,7 @@
             <p>{{home.name}} -located at <em>{{ home.area}}</em></p>
             <p>{{home.rooms}} Rooms</p>
             <hr>
-            {% for comment in comments %}
-            <div>
-                <!-- <p>{{ comment.property.name }}</p> -->
-                <div class="ml-2"><strong>{{ comment.user.user.username }} :</strong> <span
-                        class="text-secondary">{{ comment.comment }}</span>
-                </div>
-            </div>
-            {% empty %}
-            <p class="ml-3">No comments here yet</p>
-            {% endfor %}
+
 
 
         </div>
@@ -40,8 +34,20 @@
                 {% csrf_token %}
 
                 {% bootstrap_form form layout='block' %}
-                <button type="submit" class="btn btn-sm btn-info" style="margin-top:10px; margin-left:5px">Comment</button>
+                <button type="submit" class="btn btn-sm btn-"
+                    style="margin-top:10px; margin-left:5px">Comment</button>
             </form>
+            <hr>
+            {% for comment in comments %}
+            <div>
+                <!-- <p>{{ comment.property.name }}</p> -->
+                <div class="ml-2 bg-dark"><strong>{{ comment.user.user.username }} :</strong> <span
+                        class="text-light">{{ comment.comment }}</span>
+                </div>
+            </div>
+            {% empty %}
+            <p class="ml-3">No comments here yet</p>
+            {% endfor %}
         </div>
 
 
