@@ -49,8 +49,7 @@ def details(request,name):
         'home': home,
         'form': form,
         'comments':comment,
-        
-
+       
         }
     return render(request,'details.html',params)
 
