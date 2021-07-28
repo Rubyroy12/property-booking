@@ -7,7 +7,7 @@ urlpatterns=[
     path('',views.index,name = 'index'),
     path('property/',views.property,name = 'property'),
     path('property/details/<name>/',views.details,name = 'details'),
-    path('account/profile',views.profile,name = 'profile')
+    path('account/profile/<str:username>/',views.profile,name='profile'),
    
 ]
 if settings.DEBUG:

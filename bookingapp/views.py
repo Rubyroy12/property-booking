@@ -17,9 +17,14 @@ def index(request):
 
 
 def profile(request,username):
-    current_user = request.user
+    user=request.user.profile
+  
+    params = {
+        'user':user,
+    }
+   
 
-    return render(request,'profile.html')
+    return render(request,'profile.html',params )
 
 def property(request):
     myproperty=Property.objects.all()

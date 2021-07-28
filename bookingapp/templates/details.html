@@ -14,7 +14,7 @@
         <div class="col-md-1"></div>
         <div class="col-md-6">
             <div class="card card-body">
-                <div class="card-title">{{home.name}} - <span>Ksh. {{home.price}}</span> <button class="book btn btn-outline-primary">Book</button></div>
+                <div class="card-title">{{home.name}} - <span>Ksh. {{home.price}}</span> <a class="book btn btn-outline-primary" href="{% url 'profile' user.username %}">Book</a></div>
 
                 <img src="{{ home.image.url }}" alt="{{ home.name }}" class="img-responsive" height="400" width="90%">
 
@@ -24,6 +24,7 @@
             <hr>
             {% for comment in comments %}
             <div>
+                <!-- <p>{{ comment.property.name }}</p> -->
                 <div class="ml-2"><strong>{{ comment.user.user.username }} :</strong> <span
                         class="text-secondary">{{ comment.comment }}</span>
                 </div>
