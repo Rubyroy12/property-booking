@@ -35,15 +35,12 @@ class Reviews(models.Model):
     def __str__(self):
         return f'{self.user.name} Property'
 
-class Paymentmode(models.Model):
-    mode= models.CharField(max_length=100)
+# class Paymentmode(models.Model):
+#     mode= models.CharField(max_length=100,blank=True)
 
 class Cart(models.Model):
     user= models.ForeignKey(Profile, on_delete=models.CASCADE,related_name='booking')
-    # appartment_name= models.CharField(max_length=100)
-    # rooms= models.IntegerField()
-    # area= models.CharField(max_length=100)
-    # price= models.DecimalField(max_digits=10, decimal_places=2)
+    property = models.ForeignKey(Property, on_delete=models.CASCADE)
     card_No= models.CharField(max_length=100)
-    payment_mode=models.ForeignKey(Paymentmode, on_delete= models.CASCADE)
+    
 
