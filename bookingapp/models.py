@@ -36,8 +36,8 @@ class Reviews(models.Model):
         return f'{self.user.name} Property'
 
 
-class Booking(models.Model):
+class Cart(models.Model):
     user= models.ForeignKey(Profile, on_delete=models.CASCADE,related_name='booking')
-    property= models.ForeignKey('Property', on_delete=models.CASCADE,related_name='booking')
+    property= models.ForeignKey(Property, on_delete=models.CASCADE,related_name='booking')
     
     

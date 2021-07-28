@@ -1,0 +1,46 @@
+{% extends 'base.html'%}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    
+    <h2>My cart</h2>
+    <hr>
+    <div class="row">
+
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8">
+            <h3>{{user.name}}</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">S/N</th>
+                        <th scope="col">appartment Name</th>
+                        <th scope="col">Area</th>
+                        <th scope="col">Rooms</th>
+                        <th scope="col">Price (Ksh)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>{{appartment.name}}</td>
+                        <td>{{appartment.area}}</td>
+                        <td>{{appartment.rooms}}</td>
+                        <td>{{appartment.price}}</td>
+                    </tr>
+                
+                </tbody>
+            </table>
+
+
+
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+
+</div>
+{% endblock %}
