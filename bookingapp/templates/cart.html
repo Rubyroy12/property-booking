@@ -3,7 +3,7 @@
 {% load static %}
 {% block content %}
 
-<div class="container">
+<div class="container"style="background-color: rgb(111, 127, 129);">
     
     <h2>My cart</h2>
     <hr>
@@ -27,7 +27,7 @@
                     <tr>
                         <th scope="row">1</th>
                         <td>{{appartment.name}}</td>
-                        <td>{{appartment.area}}</td>
+                        <td>{{appartment.area}}-({{appartment.city.name}})</td>
                         <td>{{appartment.rooms}}</td>
                         <td>{{appartment.price}}</td>
                     </tr>

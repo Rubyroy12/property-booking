@@ -1,0 +1,43 @@
+{% extends 'base.html'%}
+{% load bootstrap4 %}
+{% load static%}
+{% block content %}
+<div class="container-fluid" style="background-color: rgb(111, 127, 129);">
+
+    <div class="row">
+        <div class="col-md-3"></div>
+
+        <div class="col-md-6">
+            <h3>My Order</h3>
+            <hr>
+
+            {% for order in order%}
+            <div class="card card-body">
+                <h3>{{order.user.user.username}}</h3>
+
+                <h4>{{order.property.name}} - <strong style="display:flex;float:right;"> Ksh.
+                        {{order.property.price}}</strong></h4>
+                <p>Rooms: {{order.property.rooms}} </p>
+                <p>Location : {{order.property.city.name}} City <span> - {{order.property.area}} </span> </p>
+
+                <button class="btn btn-danger" style="width:15%">Delete</button>
+
+
+                <hr>
+
+            </div>
+            {% endfor %}
+            <div class="card card-body">
+                <h2>Total Cost: -</h2>
+            </div>
+
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+
+</div>
+
+
+
+{%endblock%}

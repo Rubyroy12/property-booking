@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponse,HttpResponseRedirect
-from .models import Property,Reviews,Profile
+from .models import Property,Reviews,Cart
 from django.contrib.auth.models import User
 from .forms import ReviewsForm,BookingForm
 from django.contrib.auth.decorators import login_required
@@ -75,3 +75,9 @@ def booking(request,name):
     }
     return render(request,'cart.html',params)
 
+def order(request):
+    order= Cart.objects.all()
+    params={
+        'order':order,
+    }
+    return render(request,'order.html',params)

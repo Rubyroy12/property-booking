@@ -8,7 +8,8 @@ urlpatterns=[
     path('property/',views.property,name = 'property'),
     path('property/details/<name>/',views.details,name = 'details'),
     path('account/profile/<str:username>/',views.profile,name='profile'),
-    path('booking/cart/<name>/',views.booking,name='booking')
+    path('booking/cart/<name>/',views.booking,name='booking'),
+    path('property/order/',views.order,name='order'),
    
 ]
 if settings.DEBUG:
