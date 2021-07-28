@@ -18,9 +18,7 @@ def index(request):
 
 @login_required(login_url='/accounts/login/')
 def profile(request,username):
-    # property = Property.objects.get(name=name)
-
-   
+     
 
     return render(request,'profile.html')
 
@@ -32,7 +30,7 @@ def property(request):
     }
     return render(request,'property.html',params)
 
-
+@login_required(login_url='/accounts/login/')
 def details(request,name):
     home = Property.objects.get(name=name)
    
@@ -56,6 +54,7 @@ def details(request,name):
         }
     return render(request,'details.html',params)
 
+@login_required(login_url='/accounts/login/')
 def booking(request,name):
     appartment = Property.objects.get(name=name)
     params={
