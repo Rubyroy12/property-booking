@@ -2,14 +2,21 @@
 {% load bootstrap4 %}
 {% load static %}
 {%block content %}
-<div class="container-fluid">
+<div class="container-fluid bg-dark text-white" style="height:65vh">
 
-    <h2>My profile</h2>
-    <hr>
-    <p>Name: <strong>{{user.username}}</strong></p><br>
-    <p>Email: <strong>{{user.email}}</strong></p>
-    <br>
-    <a class="btn btn-primary" href="/accounts/logout" style="color: inherit;">Logout</a>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h2 class="mt-3">My profile</h2>
+            <hr>
+            <img src="../static/images/account.png" alt="">
+            <p>Name: <strong>{{user.username}}</strong></p><br>
+            <p>Email: <strong>{{user.email}}</strong></p>
+            <br>
+            <a class="btn btn-primary" href="/accounts/logout" style="color: inherit;">Logout</a>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
     <div class="row">
 
 
