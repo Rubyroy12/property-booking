@@ -10,6 +10,7 @@ urlpatterns=[
     path('account/profile/<str:username>/',views.profile,name='profile'),
     path('booking/cart/<name>/',views.booking,name='booking'),
     path('property/order/',views.order,name='order'),
+    path('/delete/<int:id>',views.delete, name="delete"),
    
 ]
 if settings.DEBUG:

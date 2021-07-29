@@ -81,3 +81,16 @@ def order(request):
         'order':order,
     }
     return render(request,'order.html',params)
+
+    
+@login_required(login_url='/accounts/login/')
+def delete(request,id):
+    order= Cart.objects.filter(id=id).delete()
+    params={
+        'order':order,
+    }
+  
+    return render(request,'order.html' , params)
+
+    
+

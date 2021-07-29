@@ -20,7 +20,7 @@
                 <p>Rooms: {{order.property.rooms}} </p>
                 <p>Location : {{order.property.city.name}} City <span> - {{order.property.area}} </span> </p>
 
-                <button class="btn btn-danger" style="width:15%">Delete</button>
+                <a class="btn btn-danger" style="width:15%" href="{% url 'delete' order.id %}">Delete</a>
 
 
                 <hr>
