@@ -9,6 +9,8 @@ class Profile(models.Model):
 class City(models.Model):
     name = models.CharField(max_length = 50)
 
+   
+
 class Property(models.Model):
     city = models.ForeignKey(City,on_delete = models.CASCADE,related_name = 'property')
     name= models.CharField(max_length=100)
@@ -20,6 +22,13 @@ class Property(models.Model):
     
     class Meta:
             ordering = ["-pk"]
+    
+    @classmethod
+    def search_home(cls, search_term):
+        city= City.objects.filter(name__icontains=search_term)
+        home =Property.objects.filter(id=city)
+
+        return home
 
 class Gallery(models.Model):
     property= models.ForeignKey(Property, on_delete = models.CASCADE, related_name = 'gallery')

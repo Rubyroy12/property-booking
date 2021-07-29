@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponse,HttpResponseRedirect
-from .models import Property,Reviews,Cart
+from .models import City, Property,Reviews,Cart
 from django.contrib.auth.models import User
 from .forms import ReviewsForm,BookingForm
 from django.contrib.auth.decorators import login_required
@@ -96,4 +96,17 @@ def delete(request,id):
     return render(request,'order.html' , params)
 
     
+def search_results(request):
 
+    if 'city' in request.GET and request.GET['city']:
+        search_term = request.GET.get('city')
+        searched_homes= Property.search_home(search_term)
+        message=f"{search_term}"
+
+        return render(request,'search.html',{"message":message,"city":searched_homes})
+    else:
+
+        message = "You have not searched any city"
+
+        return render(request,'search.html',{"message":message})
+    

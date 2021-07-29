@@ -11,6 +11,7 @@ urlpatterns=[
     path('booking/cart/<name>/',views.booking,name='booking'),
     path('property/order/',views.order,name='order'),
     path('delete/<int:id>',views.delete, name="delete"),
+    path('search/$', views.search_results, name='search_results'),
    
 ]
 if settings.DEBUG:
