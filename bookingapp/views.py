@@ -66,12 +66,14 @@ def booking(request,name):
             book.user = request.user.profile
             book.property= myproperty
             book.save()
-            return HttpResponseRedirect(request.path_info)
+            message="Order made successfully"
+            return HttpResponseRedirect(request.path_info,{'message':message})
     else:
         form = BookingForm()
     params={
         'appartment':appartment,
         'form':form,
+        
     }
     return render(request,'cart.html',params)
 
@@ -85,7 +87,8 @@ def order(request):
     
 @login_required(login_url='/accounts/login/')
 def delete(request,id):
-    order= Cart.objects.filter(id=id).delete()
+    order= Cart.objects.get(id=id)
+    order.delete()
     params={
         'order':order,
     }

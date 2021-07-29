@@ -15,15 +15,24 @@
         <div class="col-md-6">
             <div class="card card-body">
                 <div class="card-title">
-                    <h3>{{home.name}} </h3> in <em> {{home.city.name}}</em>-<span>Ksh. {{home.price}}</span> <a
-                        class="book btn btn-outline-primary" href="{% url 'booking' home.name%}">Book</a>
+                    <h3>{{home.name}} </h3>  <h5> {{home.city.name}}</h5>-<strong>Ksh. {{home.price}}</strong> <a
+                        class="book btn btn-primary text-white" href="{% url 'booking' home.name%}">Book</a>
                 </div>
 
                 <img src="{{ home.image.url }}" alt="{{ home.name }}" class="img-responsive" height="400" width="90%">
 
             </div>
-            <p>{{home.name}} -located at <em>{{ home.area}}</em></p>
-            <p>{{home.rooms}} Rooms</p>
+          <div class="card card-body bg-dark text-white">
+              <h5>{{home.name}}</h5>
+              <p>Located at <em>{{ home.area}}</em></p>
+              <strong>{{home.rooms}} Rooms</strong>
+              <h3>Decsription</h3>
+              <p>{{ home.description }}</p>
+              
+
+
+
+          </div>
             <hr>
 
 
@@ -34,7 +43,7 @@
                 {% csrf_token %}
 
                 {% bootstrap_form form layout='block' %}
-                <button type="submit" class="btn btn-sm btn-"
+                <button type="submit" class="btn btn-sm btn-primary"
                     style="margin-top:10px; margin-left:5px">Comment</button>
             </form>
             <hr>

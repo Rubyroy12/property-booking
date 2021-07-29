@@ -3,7 +3,7 @@
 {% load static %}
 {% block content %}
 
-<div class="container"style="background-color: rgb(111, 127, 129);">
+<div class="container-fluid" style="background-color: rgb(111, 127, 129); height: 70vh">
     
     <h2>My cart</h2>
     <hr>
@@ -11,9 +11,10 @@
 
         <div class="col-md-2"></div>
 
-        <div class="col-md-8">
+        <div class="col-md-8 bg-dark text-white">
+            <h2>{{message}}</h2>
             <h3>{{user.username}}</h3>
-            <table class="table">
+            <table class="table text-white" >
                 <thead>
                     <tr>
                         <th scope="col">S/N</th>
@@ -35,11 +36,11 @@
                 </tbody>
               
             </table>
-            <form class="form" action="" method="post" novalidate enctype="multipart/form-data">
+            <form class="form" action="" method="post" novalidate enctype="multipart/form-data" style="width: 40%;">
                 {% csrf_token %}
 
                 {% bootstrap_form form layout='block' %}
-                <button type="submit" class="btn btn-sm btn-info" style="margin-top:10px; margin-left:5px">Pay</button>
+                <button type="submit" class="btn btn-sm btn-success" style="margin-top:10px; margin-left:5px ">Submit</button>
             </form>
 
 

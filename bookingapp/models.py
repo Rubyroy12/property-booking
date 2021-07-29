@@ -33,7 +33,7 @@ class Reviews(models.Model):
         ordering = ["-pk"]
     
     def __str__(self):
-        return f'{self.user.name} Property'
+        return f'{self.user.user} Property'
 
 
 class Cart(models.Model):
