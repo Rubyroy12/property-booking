@@ -3,14 +3,14 @@
 {% load static %}
 {% block content %}
 <div class="container-fluid" style="background-color: rgb(134, 163, 168);">
-    <div class="h2">welcome to my prperty booking app</div>
-    <div class="row">
+    <div class="h2" style="height:15vh;background-color:rgb(28, 41, 41);color: aqua; display: flex; justify-content:center;align-items:center">Home is where the heart is.</div>
+    <div class="row m-4">
         {% for property in property %}
 
         <div class="card m-3" style="width: 18rem;">
             <a href="{% url 'details' property.name%}"> <img class="card-img-top" src="{{ property.image.url}}"
                     alt="{{property.name}}" height="200px"></a>
-            <div class="card-body bg-secondary">
+            <div class="card-body bg-dark text-white">
                 <h5 class="card-title">{{property.name}}</h5>
                 <p class="card-text"> Ksh: {{property.price}}</p>
                 <a href="{% url 'details' property.name%}" class="btn btn-primary">Book Now</a>

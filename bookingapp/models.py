@@ -17,6 +17,9 @@ class Property(models.Model):
     description = models.CharField(max_length=500)
     rooms=models.IntegerField()
     price= models.DecimalField(max_digits=10, decimal_places=2)
+    
+    class Meta:
+            ordering = ["-pk"]
 
 class Gallery(models.Model):
     property= models.ForeignKey(Property, on_delete = models.CASCADE, related_name = 'gallery')
