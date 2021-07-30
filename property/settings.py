@@ -63,7 +63,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bookingapp',
-    'bootstrap4'
+    'bootstrap4',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -99,19 +100,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'property.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'property',
-        'USER': 'ibrahim',
-        'PASSWORD':'secret',
-        'HOST': '127.0.0.1',
-        'PORT': '5432'
-    }
-}
 
 
 # Password validation
