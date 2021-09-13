@@ -1,4 +1,4 @@
-#!/home/ibrahim/Documents/python/django-projects/property-boooking/venv/bin/python3
+#!/home/ibrahim/Documents/projects/python/property-booking/venv/bin/python3
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 
